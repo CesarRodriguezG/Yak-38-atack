@@ -1,0 +1,56 @@
+Certainly! Here's a list of some **Java libraries** commonly used in scientific areas, along with their advantages and disadvantages:
+
+1. **SciJava**:
+   - **Advantages**:
+     - Provides an overview of available Java libraries for scientific computing.
+     - Committed to co-operating with other projects, reusing libraries, and integrating clients for a seamless workflow.
+     - Focuses on biosciences but welcomes other projects.
+   - **Disadvantages**:
+     - May not cover all scientific domains equally.
+   - **Website**: [SciJava](https://scijava.org/)¹.
+
+2. **JScience**:
+   - **Advantages**:
+     - Comprehensive Java library for the scientific community.
+     - Integrates various sciences (math, physics, sociology, biology, astronomy, economics) into a single architecture.
+   - **Disadvantages**:
+     - May not have as large a user base as some other libraries.
+   - **Website**: [JScience](https://jscience.org/)⁴.
+
+3. **Machine Learning Libraries**:
+   - **Advantages**:
+     - Extensible and offers APIs for both research scientists and software developers.
+     - Useful for implementing machine learning algorithms.
+   - **Disadvantages**:
+     - Focused on machine learning, not a general-purpose scientific library.
+   - **Reference**: [BairesDev Blog](https://www.bairesdev.com/blog/best-java-machine-learning-libraries/)².
+
+Remember that the choice of library depends on your specific scientific domain and requirements. Explore these options to find the best fit for your project! 🚀
+
+Origen: Conversación con Bing, 26/2/2024
+(1) SciJava. https://scijava.org/.
+(2) JScience. https://jscience.org/.
+(3) 7 Best Java Machine Learning Libraries | Blog - BairesDev. https://www.bairesdev.com/blog/best-java-machine-learning-libraries/.
+(4) 20 Best Java Libraries Every Java Developer Must Know About - Blogs. https://xperti.io/blogs/best-useful-java-libraries/.
+
+
+
+As of my last knowledge update (which was current until 2021), **JScience** is not considered "dead," but its development activity has significantly slowed down. Here are some points to consider:
+
+1. **Status**:
+   - JScience has not seen major updates or releases in recent years.
+   - The official website and documentation are still accessible, but the community activity has diminished.
+
+2. **Advantages**:
+   - Comprehensive library for scientific computations.
+   - Provides units of measurement, physical constants, and mathematical functions.
+   - Integrates various scientific disciplines into a single architecture.
+
+3. **Disadvantages**:
+   - **Lack of Active Development**: The library's development has stagnated, which may impact its compatibility with newer Java versions and evolving scientific needs.
+   - **Limited Community Support**: Due to reduced activity, finding community support or contributors might be challenging.
+
+4. **Alternatives**:
+   - Consider exploring other libraries like **Apache Commons Math**, **NumJava**, or **EJML** for scientific computing in Java.
+
+Remember that technology landscapes change over time, so it's essential to check for the latest updates or alternatives if you're considering using JScience for your project. 🌟

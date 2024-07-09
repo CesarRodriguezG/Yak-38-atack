@@ -1,0 +1,129 @@
+factorial rápido:
+		public int factorial(int i)
+    {
+        if (i == 0){
+            return 1;
+			}
+        return i * factorial(i - 1);
+    }
+
+____________________________________________
+
+	private static long factorial(int n1) {
+		long miNum = 1;
+		for(int i=1;i<=n1;i++) {
+			miNum*=i;
+		}
+		return miNum;
+	}
+
+
+____________________________________________
+
+	Scanner: hay que cerrar en las clases de entrada y salida: I/O classes
+
+		public void readShapeData() throws IOException {
+    Scanner in = new Scanner(System.in);
+    try {
+        System.out.println("Enter the width of the Rectangle: ");
+        width = in.nextDouble();
+        System.out.println("Enter the height of the Rectangle: ");
+        height = in.nextDouble();
+    		} finally {
+        		in.close();
+   	 	}
+	    }
+
+____________________________________________
+
+	triangulo de tartaglia:
+
+	public class Main {
+
+  public static void main(String[] args) {
+    int rows = 6, coef = 1;
+
+    for(int i = 0; i < rows; i++) {
+      for(int space = 1; space < rows - i; ++space) {
+        System.out.print("  ");
+      }
+
+      for(int j = 0; j <= i; j++) {
+        if (j == 0 || i == 0)
+          coef = 1;
+        else
+          coef = coef * (i - j + 1) / j;
+
+        System.out.printf("%4d", coef);
+      }
+
+      System.out.println();
+    }
+  }
+}
+
+_________________________________________________FOR-EACH
+
+		NO SE PUEDE LLEVAR UN SEGUIMIENTO DEL INDICE EN LOS BUCLES FOR-EACH
+
+	PROGRAMA DE MEDICION DE TIEMPOS PARA LOS DIFERENTES BUCLES, for each puede ser 4 veces más lento.		
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+	public static void main (String[] args) {
+		List<Integer> list = new ArrayList<>();
+		long startTime;
+		long endTime;
+		for (int i = 0; i < 1000000; i++) {
+			list.add(i);
+		}
+		// Type 1
+		startTime = Calendar.getInstance().getTimeInMillis();
+		for (int i : list) {
+			int a = i;
+		}
+		endTime = Calendar.getInstance().getTimeInMillis();
+		System.out.println("For each loop :: " + (endTime - startTime) + " ms");
+		
+		// Type 2
+		startTime = Calendar.getInstance().getTimeInMillis();
+		for (int j = 0; j < list.size(); j++) {
+			int a = list.get(j);
+		}
+		endTime = Calendar.getInstance().getTimeInMillis();
+		System.out.println("Using collection.size() :: " + (endTime - startTime) + " ms");
+		
+		// Type 3
+		startTime = Calendar.getInstance().getTimeInMillis();
+		int size = list.size();
+		for (int j = 0; j < size; j++) {
+			int a = list.get(j);
+		}
+		endTime = Calendar.getInstance().getTimeInMillis();
+		System.out.println("By calculating collection.size() first :: " + (endTime - startTime) + " ms");
+	
+		// Type 4
+		startTime = Calendar.getInstance().getTimeInMillis();
+		for(int j = list.size()-1; j >= 0; j--) {
+			int a = list.get(j);
+		}
+		endTime = Calendar.getInstance().getTimeInMillis();
+		System.out.println("Using [int j = list.size(); j > size ; j--] :: " + (endTime - startTime) + " ms");
+	}
+}
+
+// This code is contributed by Ayush Choudhary @gfg(code_ayush)
+
+
+
+
+
+
+
+
+
+//ordenar datos en arbol: treenode

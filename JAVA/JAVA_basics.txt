@@ -1,0 +1,205 @@
+Proyecto, dentro hay una carpeta src y dentro del src java nos ha creado un paquete por defecto. Cuando cremos una nueva clase 
+debemos crear un paquete para guardarlo, si no indicamos el paquete de la clase nos guardarña la clase en un paquete por defecto
+___________________________________________________________________________________________
+POO: programacion orientada a objetos
+System.out // comando para comiunicarase con la consola y mostrar datos allí
+__________________________________________A partir de aqui informacion ordenada:
+string: es una clase
+	String frase="hoy es un dia estupendo paraprogramar en python" //frase es el objeto y lo que hemos hecho es ejemplificar string o instanciar
+	String frase_resumen = frase.substring(0,29)+"irnos a la playa a jugar al rugby"+"y"+frase.substring(29,57);
+
+	System.out.println(frase_resumen) // imprime en la ventana de comandos: hoy es un dia estupendo paraprogramar irnos a la playa a jugar al rugby y en python
+
+
+
+	_____________________________________________________
+
+	String alum1,alum2;
+	alum1="David";
+	alum2="David";
+	System.out.println(alum1.equals(alum2)); //devuelve true porque las cadenas de caracteres son iguales
+	_______________________________
+	alum3="david";
+	System.out.println(alum1.equalsIgnoreCase(alum3)); //devuelve true porque ignora las mayusculas
+
+_____________________________________________________%____________________API Java (primer acercamiento)_________________%_____________________________________________________
+
+para organizar archivos se usan carpetas, en java las carpetas son paquetes. En la api de java(contiene todas las clases oficiales, es propiedad de oracle) tenemos un panel
+con los paquetes de la api de java. paquetes: java(java.awt/java.util(java.util.regex)/java.io),javax(javax.activity/javax.anotation) //dentro de java tenemos tres paquetes y en java.util tenemos otro paquete en su interior
+
+En elpaquete de la rama java tenemos java.awt.color, que se encuentra dentro de java.awt
+
+Dentro del paquete java.lang tenemos diferentes clases, como la clase Math, String...
+Dentro del paquete java.lang tenemos otro paquete: java.lang.ref que dentro tiene más clases
+Las clases son necesarias para organizar, para evitar conflictos denombre y para encapsular
+paquete(Java.lang) => clase(Math) => metodo(sqrt())
+
+_________________________________________________________________Paquetes
+
+
+
+·ENTRADA Y SALIDA DE DATOS(A PARTIR DE LA CONSOLA). FORMATO DE RESULTADOS
+
+	Lo ideal es hacer una interfaz grafica de usuario :IGU. Creamos una especie de formulario que nos permite ver los datos 
+		y añadir datos. Pero en java aun no tenemos el nivel para hacer una IGU.
+
+		Para introducir datos de forma mas sencilla utilizamos clases: Clase Scanner(nextLine() introduce texto(string)/nextInt() enteros/nextDouble()) esta clase nos permitira 
+		introducir datos a traves de la consola. Estos metodos del paquete scanner no son estaticos, no hay que poner el nombre de la clase antes del metodo. Un metodo que 
+		no es estatico, implica que utilices un objeto delante de la clase, hay que instanciar/ejemplificar la clase. Crear un objeto
+
+		Otraclase más antigua es JOptionPane: se abre una ventana para introducir datos. showInputDialog() // este es un metodo estatico, por lo que antes del 
+		metodo tendremos que poner el nombre de la clase
+
+		Todos los metodos son estaticos, algunos de los metodos nos devuelven string, otros nos devuelven objetos. Muchos de ellos tienen el mismo nombre:
+
+JOptionPane.showInputDialog solo devuelve string
+______________________________
+  
+CLASE CON SCANNER:
+import java.util.*;
+public class Entrada_ejemplo1 {
+
+	public static void main(String[] args) {
+
+		Scanner entrada=new Scanner(System.in);  // va a dar error porque tenemos que importar el paquete java.util
+		System.out.println("Introdice tu nombre");
+
+		String nombre_usuario=entrada.nextLine(); //introdice dato string
+
+		System.out.println("Introduce edad por favor");
+		int edad=entrada.nextInt(); //dato de entero, no puede ser muy alto, no es long
+
+		System.out.println("El usuario tiene"+edad+"vueltas al sol y se llama"+nombre_usuario+"el año que viene tendrá"+(edad+1)+"años");
+
+	}
+}
+
+______________________________
+
+CLASE CON JOptionPane:
+
+import javax.swing.*;
+
+public class Entrada_ejemplo2 {
+
+	public static void main(String[] args) {
+
+		//tenemos varios metodos: 
+
+		String nombre = JOptionPane.showInputDialog("Introduce tu nombre por favor") //apareceráuna ventana en la que te aparece el enunciado puedto, un boton de aceptar y otro de cancelar
+
+		String edad= JOptionPane.showInputDialog("Introduce tu edad") // ponemos string porque el metodo no acepta enteros
+
+		System.out.println("Hola" + nombre + "tienes" + edad + "años");
+
+		System.out.println("El año que viene tendrás" + (edad + 1) "años"); //en esta salida aparecerá la edad concatenada con un uno porque es de tipo string: 17+1 años: 171 años
+
+		//para solucionarlo hay que pasar la string a el tipo int con: parseInt(edad) integer. El metodo es estatico, hay que poner el nombre de la clase (integer). Pide el dato de tipo string
+	
+		//System.out.println("El año que viene tendras" + (Integer.parseInt(edad) + 1 ) + "años");  mo estoy seguro de que se pueda hacer así
+
+		int  edad_int = Integer.parseInt(edad);
+
+		System.out.println("El año que viene tendras" + (edad_int + 1 ) + "años");
+
+		edad_año_siguente += edad_int;
+
+
+	}
+
+}
+
+________________________________
+
+CLASE CON formato a los numeros: se puede usar NumberFormat, pero es demasiado avanzada
+
+public class Entrada_ejemplo2 {
+
+	public static void main(String[] args) {
+
+		double x=10000.0;
+
+		System.out.println(x/3); //van a aparecer muchos deciamles, para arreglarlo:
+
+		System.out.printf("1.2f", x/3) // printf tiene primero el argumento del formato, en este caso le va a dar dos decimales (1.2 => dos decimales)
+
+		}
+}
+
+
+_________________________________
+
+import javax.swing.*;
+
+public class Entrada_ejemplo2 {
+
+	public static void main(String[] args) {
+
+
+		String num1= JOptionPane.showInputDialog("intriduce un entero");
+
+		double num2= Double.parseDouble(num1); // double porque la raiz exige que la entrada sea double
+
+		System.out.print("La raiz de " + num2 +  "es");
+
+		System.out.printf("%1.2f" , Math.sqrt(num2)); // si ponemos %1.4 dará el resultado con 4 deciamles.
+
+		}
+}
+
+
+______________________________Java condicionales__________________________________________
+
+
+public class Entrada_ejemplo2 {
+
+	public static void main(String[] args) {
+
+
+		String num1= JOptionPane.showInputDialog("intriduce un entero");
+
+		double num2= Double.parseDouble(num1); // double porque la raiz exige que la entrada sea double
+
+		System.out.print("La raiz de " + num2 +  "es");
+
+		System.out.printf("%1.2f" , Math.sqrt(num2)); // si ponemos %1.4 dará el resultado con 4 deciamles.
+
+		}
+}
+
+
+__________________________________Herramientas eclipse_____________________________________
+
+
+		Tenemos en eclipse un panel muy util llamado outline, este nos informa del paquete 
+		en el que estamos y ademas nos informa de nuestra clase. En la clase hace diferencia 
+		en nuestro constructor(el que lleva la c pequeña), los metodos que hemos usado y de 
+		las variables de la clase
+
+
+
+_______________________________________BASICS_________________________________________________
+		
+		Seleccionar una fila de una matriz: fila = matriz(i) //i es la fila, donde la primera esta en el 0
+		Seleccionar una columna de una matriz: bucle for
+						for(i=0;i<matrix.length;i++){
+									coloumn[i] = matrix[i][1]
+							}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,169 @@
+Índice:
+	
+	1.Arrays
+	2.Arrays 2D
+	3.List & Arraylist
+	4.Stack
+	5.Queue
+	6.Linked List
+	7.Sets
+	8.Map
+	9.Hash Functions & HashCode
+	10.Vectors 
+	11.
+	12.
+	13.
+	14.
+		
+	
+	
+	1.Arrays:____java.util.Arrays
+		
+		Arrays.toString(miarray)	
+		miarray.length	
+		enhanced-for-loop:
+			for(String color: colors){}
+		
+		for-each loop:			Arrays.stream(colors).forEach(System		.out::println)
+		
+		
+		más métodos con: Arrays.*
+		
+		
+		
+	2.Arrays 2D__	
+		
+		Arrays.deepToString(miarray)
+
+
+
+		
+		
+	3.List & Arraylist__	
+		
+		List<String> coches= new ArrayList<>(); //declaramos como la interfaz list podemos poner ArrayList pero en ese caso no podemos instanciar la estructura de ninguna otra forma, poniendo list luego podemos poner linkedlist y cualquier otra clase que implemente list, <> podemos poner String pero es redundante. 
+
+
+
+		colors.add("ferrari");
+		colors.add("mercedes");
+		
+		coches.size()
+		coches.contains("mercedes") //devuelve boolean
+		
+	
+	
+	for(String coche : coches){
+		System.out.println(coche);
+	}
+		
+
+	coches.forEach(System.out::println);
+	
+
+	for(int i=0;i<coches.size();i++){
+		System.out.println(colors.get(i));
+	}
+	
+	____________________interfaz List:
+	
+		public interface List<E> extends collection<E>{}
+		
+		ArrayList impmlementa List, hereda de abstractArrayList
+		
+		
+		
+		return elementData = Arrays.copyOf(elementData, newCapacity) //codigo perteneciente a la clase arraylist
+		
+		
+		
+		
+		List<String> colorsUnmodifiable = List.of("blue", "yellow")	;
+
+		al declarar la lista de esta forma no la podemos modificar: colorsUnmodifiable.add("pink"); //error
+por eso la llamammos unmodifiable	  
+		
+		
+		
+		
+		
+			
+
+
+	4.Stack_________		
+		last-in-first-out(LIFO), extends class vector.
+	
+		
+		
+		methods:
+			
+			push(introducir datos), pop(extraer), peek, check 			if the stack is empty, search in the stack for an 			item and 	discover how far it is from the top.
+				
+			
+		Stack<Integer> mistack = new Stack<>();
+			
+		mistack.push(item: 1);
+		mistack.push(item: 2);
+		mistack.push(item: 3);			
+		System.out.println(mistack.peek()); //1ºdato extraido
+que es 3 porque es el último introducido
+
+		System.out.println(mistack.size()); //3
+		System.out.println(mistack.pop());// 3, lo quita del stack, popea el pushed 
+		System.out.println(mistack.size()); // 2,  
+			
+		mistack.empty() //return false because it has still elements
+			
+______________stack hereda de veector que implementa list:
+
+	podemos declararlo así:
+
+		List<Integer> mistack = new Stack<>();
+		mistack.add(item: 1); //metodo de la interfaz list     
+
+		
+
+
+
+
+	5.Queue:_______________(interfaz) import java.util.Queue;
+		first-in-first-out(FIFO) designed for holding elements 		prior to processing.
+		
+		methods: add, offer, remove, poll, element, peek. + 			methods from collection
+		
+		main{
+
+		Queue<Planta> market = new LinkedList<>();
+		
+		market.add(new Planta(especie: hiedra, salud:true);
+		market.add(new Planta(especie: geranio, salud:false);
+		market.add(new Planta(especie: rosa, salud:true);
+		
+		System.out.println(market.peek()); //return hiedra, doesnt remove the element.
+		
+		System.out.println(market.poll()); //return and delete hiedra
+		System.out.println(market.size()); //return 2, 1ºdeleted
+		System.out.println(market.peek()); //return geranio
+		}
+		
+		static record Planta(Straing raza, Boolean: salud){}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+	10.Vectors:____________
+		la principal diferencia de vector y arraylist es que 		vector es sicronized, por tanto if a thread-safe 			implementation is not needed its recomended to use 			ArrayList.
+
+
+			
+			
+			

@@ -1,0 +1,536 @@
+											PROGRAMACIÓN ORIENTADA A OBJETOS:
+
+		INTRODUCCIÓN:
+
+		CLASE: conjunto de objetos que comparten una estructura y un comportamiento comunes.
+				se definen los atributos(caracteristicas) y los metodos(comportamiento), una vez definido todo el objeto tiene un estado.
+		Tenemos una clase que usamos como plantilla, las clases se comunican entre sí. 
+
+		ESTRUCTURA:  propiedades, constructor, metodos. Se pueden usar muchas otras estructuras. Podemos poner por ejemplo la clase
+					principal en el mismo archivo que la otra clase, la clase principal va primero(vease Uso_empleado.java)
+	
+
+		JERARQUIA DE CLASES: la superclase engloba a todas: asignaturas, dentro de la superclase están las clases: ff2, calculo...
+						  a su vez, dentro de las clases estan los objetos, que pueden ser los temas: magnetismo, circuiros...	
+							Otro ejemplo es: animales => mamiferos => perro  Los objetos son las instancias de esa clase 
+
+		// en la clase principal(la que lleva main) es donde se pueden instanciar los objetos
+
+
+___________________________________Métodos Getters y Setters_____________________________________________________________
+
+
+		Tras haber encapsulado la información debemos usar métodos para poder comunicar información
+		entre clases(setter y getter/ paso de parametros). El nexo que une los módulos es lo que en 
+		javase llaman métodos, concepto relacionado con la encapsulación. 
+
+
+		2 TIPOS DE METODOS DE ACCESO:
+
+			·Setters o definidores: destinado a modificar el valor de una propiedad del objeto
+				
+				public void nombre_metodo(){codigo} //public para que podamos usar la variable en otra clase,
+				void indica que este metodo no devuelve ningun valor(en getter ponemos return para que devuelva dato),
+				el valor del metodo, abrimos llave y escribimos el codigo que modifica el valor de la propiedad.
+				
+				
+
+			·Getters o captadores: destinado a obtener el valor de esa propiedad
+
+				public dato_a_devolver nombre_metodo(){ codigo + return + "texto" } // dato(int, string...) , 
+				nombre_metodo(variable con la que nos comunicaremos con el resto de clases),
+				despues de return escribimos lo que queremos que este almacenado en la variable nombre_metodo y la
+				variable que queremos almacenar(como por ejemplo largo)
+
+
+			EJEMPLO:
+					public void establece_color(){ //SETTER
+
+						color="azul";
+					}
+
+					public String dime_color(){ //GETTER
+
+						return "El color del coche es" + color;
+					}
+									
+										
+					_____________En la clase principal________________
+
+					Aston_martin.establece_color(); // le ponemos el azul
+		
+		
+					System.out.println(Aston_martin.dime_color()); //metodo para mostrar variables encapsuladas
+		
+					
+							
+				
+
+
+		PASO DE PARÁMETROS:
+					
+			Lo que hacemos es decirle al metodo setter que va a recibir una variable
+
+			Esto lo hacemos declarando una variable(tambien llamada argumento) dentro de los parentesis del metodo,
+			que sirven justamente para esto.
+			
+			public void establece_color(String parametro_color){ //dentro de los parentesis le pasamos una variable
+
+						color="azul";
+					}
+
+
+
+
+
+
+			Cuando al metodo getter se le pasa un parametro, el argumento de los parentesis, el argumento puede tener 
+			el mismo nombre que la variable de la clase(no la principal). Para evitar la confusión se usa el operador
+			this, que hace referencia a la propia clase. Se usa el this delante de la variable
+			
+			
+					
+												
+_______________________________________________________HERENCIA EN LAS CLASES_____________________________________________________
+
+
+		Herencia: clases que están unas dentro de otres, las clases heredan todos los mteodos y propiedades
+				de la clase a la que pertenecen. Por lo que quedan con los metodos y propiedades
+				suyos más los de la clase a la que pertenecen y a su vez los heredados de la case
+				a la que pertenece la clase de la que pertenece.
+
+					java.lang.Object
+					java.util.Calendar
+					java.util.GregorianCalendar //esta clase hereda de calendar y de object
+
+
+__________________________________________________PASAR ARGUMENTOS AL CONSTRUCTOR__________________________________________________
+
+		class empleado {
+	//usamos un constructor con entrada de paremtros
+	//en vez de declarar las variables de lcase al pricipio las declaramos al final
+	public empleado(String nom, double sue, int agno, int mes, int dia ) { //fecha = new int[3]
+		
+		nombre = nom;
+		sueldo = sue;
+		
+		GregorianCalendar = calendario new GregorianCalendar(agno, mes-1, dia); //costruimos una fecha con esta clase
+		
+		altaContrato = calendario.getTime()
+		
+		
+	} // fin constructor
+
+__________________________________________________GENERAR OBJETOS CON VECTORES____________________________________________________
+
+
+		Empleado[] misEmpleados = new Empleado[numero de empleados];
+		misEmpleados[i] = new Empleado(string ..., int 234,...);
+		misEmpleados[i] = new Empleado(string ..., int 234,...);
+		misEmpleados[i] = new Empleado(string ..., int 234,...);
+
+		for(int i=0, i<3, i++){
+
+		misEmpleados.subesueldo(5); //metodo para cambiar el dato del sueldo
+		}
+
+		// FOR EACH
+
+		for(Empleado e: misEmpleados){ //creamos una variebla e que vontiene la informacion de Empleado(variable declarada antes)
+			e.subeSueldo(5);
+		}
+
+		for(Empleado e: misEmpleados){ //creamos una variebla e que vontiene la informacion de Empleado(variable declarada antes)
+			System.out.println("nombre: " + e.dameNombre());
+		}
+
+________________________________________________FINAL Y STATIC EN CONSTANTES DE LAS CLASES__________________________________________
+		
+		
+		
+		
+		Usamos final para constantes que no deben cambiar de valor(impedimos hacer el setter), en las clases
+		está el constructor, los métoos y la declaración de variables. Usamos final en la declaración de variables:
+				Ejemplo:  private final String nombre;
+		
+		
+		
+		
+		STATIC: es una variable que pertenece a la clase, los objetos solo pueden tomar el valor de esa variable
+			  pero no es suya ni pueden modificarla.
+
+
+			_______________________________    CASO CON PUBLIC				
+			public static int Id; //en la declaración de variables dela clase
+			
+			Id=1; // en el constructor
+			
+
+			System.out.println(trabajador1.devuelveDatos()); // en el return de la clase el id vale 1
+			Empleados.Id++; // en la clase principal después de instanciar los objetos
+			System.out.println(trabajador2.devuelveDatos()); // hemos incrementado el valor de id(porque es public) para el return de la clase
+
+			también podemos incluir el incremento dentro del bucle for each después del system.out
+			_______________________________FIN CASO CON PUBLIC
+			
+			
+
+			
+			_______________________________  CASO CON ENCAPSULADO
+			private int Id; 
+
+			private static int IdSiguiente=1; 
+
+ 
+
+			Ahora en constructor: cada vez que se meta en el constructor incrementará el identificador: 
+
+			Id=IdSiguente; 
+
+			IdSiguiente++; 
+
+ 
+
+			En la clase principal:  
+
+			Nombredeclase.Id (se puede usar así si tenemos identificador public) 
+
+			_______________________________FIN CASO CON ENCAPSULADO
+ 
+
+ 
+
+		METODOS STATIC: pertenecen a la clase y no a los objetos, no podemos poner: objeto.dameIdSiguiente
+			
+			public static String dameSiguente(){
+				return "El Id siguiente es: " + IdSiguiente;
+			}
+		
+		
+
+			
+		Su característica principal es que hay que poner el nombre de la clase para usar estos métodos.
+		por ejemplo: Math.pow(3,5); // 3 elevado a 5. No actúan sobre objetos
+
+
+		Los metodos estaticos no actuan sobre campos de ejemplar o clase. Nuestro metodo dameSiguiente no puede 
+		acceder a variables como Id o nombre o dificultad. Solo puede acceder a variables o constantes que también
+		son estáticos
+_______________________________________________SOBRECARGA DE CONSTRUCTORES_______________________________________________
+		
+			
+			
+			VARIOS CONSTRUCTORES EN LA MISMA CLASE. Se usa cuando queremos dar un número de 
+			parámetros diferentes a las diferentes instancias, como por ejemplo si tenemos 
+			un objeto del que conocemos 5 parametros y otro del que conocemos 1 entonces
+			tendremos un constructor con 5 parametros y otro constructor con 5 parametros.
+			
+			Si usamos dos constructores con el mismo número de parámetros entonces da error 
+			porque no sabe qué constructor usar.
+			
+			empleado[] misEmpleados = new empleado[3]; //array tipo empleado
+
+			misEmpleados[0] = new empleado("Benito vector", 234780, 1923, 12, 3);
+			misEmpleados[1] = new empleado("Winston victor", 214780, 1913, 8, 12);
+			misEmpleados[2] = new empleado("Adolf vectra"); //utilizará el segundo constructor
+			
+			
+
+		Podemos pasar de un constructor a otro:			
+			public empleado(String nom, double sue) {
+				this(nom, sue, 2016, 2, 3); //con esto se va al primer constructor
+			}	
+			
+				un objeto con dos parámetros que al meterse en este constructor 
+				recibe 5 parametros y va al constructor de 5 parametros.
+			
+			
+			
+		Podemos hacer una clase sin constructores, en las instancias no ponemos nada entre ()
+		y dejamos sin constructores, quedando todas las instancias con la información en blanco.
+			
+
+___________________________________________HERENCIA________________________________________________________________
+
+			
+			Criterio: la superclase hereda todas suspropiedades y acciones a las subclases. El criterio es poder
+			decir: la subclase es un superclase: el camion es un vehiculo.
+
+			Los comandos que hay que poner: extends para heredar metodos y variables, superclass() para heredar el constructor
+			
+			public class Furgoneta extends Coche{
+
+			public Furgoneta(Byte plazas, int lim_carga) {
+				super(); //llamamos al constructor de la clase madre
+				this.plazas = plazas;
+				this.lim_carga = lim_carga;
+			}
+			
+			
+		Si en la subclase no ponemos constructor entonces automaticamente coje el constructor de la superclase.
+		Pero solo puede cojer constructores por defecto(que no reciban parametros) por tanto si el/los constructores 
+		de la ssuperclase reciben todos paramatros da error cuando no ponemos constructor en la subclase.
+				En este caso debemos hacer el constructor i.e: public Jefatura(String nom, double sue, int agno){
+																super(nom, sue, agno)
+															}
+														public void estableceincentivo(double b){
+																incentivo = b;
+															}
+															
+														public double dameSueldo(){
+
+											
+															double sueldoJefe = super.dameSueldo(); //almacenamos el sueldo del
+					//empleado en el sueldo del jefe, estamos usando el metodo de la suoerclase, por lo que ponemos super.
+															return sueldoJefe+incentivo;
+															}	
+						//si no ponemos super va al metodo de la subclase									
+															
+															
+																
+			En el super() debemos pasar los parametros justos para llamar a un determinado constructor de la superclase
+			
+			El metodo dameSueldo de la superclase empleado no sirve para esta subclase, porque ahora debemos sumar
+			el incentivo. Por tanto debemos invalidar, sobreescribir o machacar el metodo dameSueldo de la superclase.
+			Podríamos haber hecho la suma en el setter, pero entonces creo que deberíamos haber machacado el metodo setter
+			estableceSueldo. A la izquierda del metodo que hemos invalidado(dameSueldo) aparece un triangulo verde, este indica
+			que overrides.
+			
+
+
+_______________________________________POLIMORFISMO_______________________________________________________
+			
+		Un mismo objeto se puedecomportar de diferente modo según el contexto.
+		Se puede utilizar un objeto de una subclase como si perteneciese a la clase(principio de sustitución).
+
+			Tenemos un array con elementos de tipo empleado: Empleado [] misEmpleados = new Empleado[6]
+			En una de sus posiciones metemos un dato de tipo jefe(subclase de empleado). Si llamamos 
+			a un método que está sobreescrito por la subclase entonces java aplicará el método de la
+			clase a los empleados y el de la subclase a los jefes. Por eso los objetos se comportan de manera
+			diferente
+			
+			
+			La JVM sabe a qué método tiene que llamar gracias al enlazado dinámico.
+			
+
+		Se puede meter dentro de un array de tipo persona dos objetos diferentes que heredan de esta, 
+		esto es gracia a la regla de spoon.
+			
+			
+_____________________________________Casting de objetos_____________________________________________________
+
+java hace el casting de variables ascendente de manera automática(a tipos de variables más generales, de byte a int por ejemplo)
+
+para hacer el casting descendente hay que especificarlo por ejemplo numeropeque = (byte) numerogeneral
+		este ejemplo es valido siempre que numerogeneral<255;
+_____________________________________Clases abstractas______________________________________________________
+		una clase es abstracte cuando tiene al menos un método abstracto.
+
+			public abstract String dame_descripcion(); //metodo en la clase abstracta, no lleva nada más, se acaba en ;
+				no lleva llaves. Solo se define pero no se construye.
+
+			todas las clases que heredan de la clase abstracta deben construir el metodo dame_descripcion, por tanto 
+			este metodo es un patron que van a seguir todas las subclases.
+
+			Para ver ejemplo de clases abstractas ver: Uso_animal
+
+	UNA CLASE ABSTRACTA ES LA QUE MARCA EL DISEÑO EN LA JERARQUÍA DE LA HERENCIA
+			porque todas las subclases llevan este metodo pero cada una lo usa de una forma.
+			
+_____________________________________Modificadores de acceso________________________________________________
+	No se deben usar métodos con el mismo nombre en un mismo paquete si tienen el modificador de acceso por defecto			
+
+				CLASE		PACKAGE		SUBCLASE		TODOS
+
+	Public		Sí			Sí			Sí			Sí
+
+	Protected		Sí			Sí			Sí			No
+
+	Por defecto	Sí			Sí			No			No
+
+	Private		Sí			No			No			No
+
+
+
+
+		private es para encapsular datos, a veces pero muy pocas se usa delante de un metodo, se hace cuando este metodo participa
+			en el funcionamiento de otros dentro de una misma clase, es como si objeto necesita otro objeto más pequeño 
+			que no debe ser accedido desde fuera.
+
+		Modificador por defecto: no se puede acceder mediante una subclase que esté en otro paquete, si está enel mismo paquete
+		sí que será accesible, porque será una sublclase que se encuentra en el paquete.
+		(en resumen, se puede acceder si está en el paquete)
+		
+		protected es accesible mediante una subclase aunque esté en un paquete diferente, pero no será accesible mediante una 
+		clase que no sea subclase y no esté en el mismo paquete. En resumen se puede acceder si está en el mismo paquete o si
+		es subclase(hereda).
+
+		
+
+	Tenemos una clase que está en otro paquete y no está en el paquete por defecto(java.lang) toda clase que esté en otro paquete 
+	lo deberemos importar. si queremos heredar de una clase que está en el paquete poo deberemos: import poo.clase1 ( para importar 
+	solo la clase 1) esto solo se puede hacer si la clase tiene modificador public o protected.
+
+Lo normal es usar el modificador por defecto si tenemos el proyecto en un solo paquete. Si queremos meter algo de otro paquete
+usaremos protected, si no importa que sea para todo ponemos public. Para encapsulación private.
+
+
+
+
+_____________________________________________CLASE OBJECT_________________________________________________________________
+
+		Es la clase cosmica pues todas las clases heredan de esta, por eso "extends object" se da por supuesto siempre.
+
+		Métodos de la clase object: 
+
+
+protected Object	clone()
+Creates and returns a copy of this object.
+
+boolean	equals(Object obj)
+Indicates whether some other object is "equal to" this one.
+
+protected void	finalize()
+Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+
+Class<?>	getClass()
+Returns the runtime class of this Object.
+
+int	hashCode()
+Returns a hash code value for the object.
+
+void	notify()
+Wakes up a single thread that is waiting on this object's monitor.
+
+void	notifyAll()
+Wakes up all threads that are waiting on this object's monitor.
+
+String	toString()
+Returns a string representation of the object.
+
+void	wait()
+Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+
+void	wait(long timeout)
+Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+
+void	wait(long timeout, int nanos)
+Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+
+
+
+
+_______________________________________________TIPOS ENUMERADOS_______________________________________________________
+
+	sURJE LA NEcesidad de almacenar en una variable una serie de vaolres pero no quremos que esa variable sea modificada
+
+	es una variable objeto de tipo enum donde se podran almacenar una serie de valores y ningun otro.
+
+	se debe declarar fuera del metodo main(fuera o dentro de la clase). Se declara como haciendo una instancia de clase:
+		enum talla {mini, mediano, grande}; //creamos la instancia talla de enum que solo puede almacenar esos tres valores.
+
+		los metodos de enum son estaticos, por lo que para utilizarlos se debe utilizar el nombre de la clase: talla.
+
+		enum talla {MINI, MEDIANO, GRANDE, GIGANTESCO}; //TALLA solo podrá almacenar estos valores.
+
+
+	no admite la elaboracion de objetos: *talla mitalla = new talla //es incorrecto, por tanto ponemos private.
+
+
+
+	Una enumeracion es una forma de almacenar datos que podemos seleccionar y son invariables. Dentro de la enumeracion podemos
+	hacer constructores, metodos y variables internas de la enumeracion para poder hacer más cosas con los enumerados:
+
+			enum talla{
+		
+				MINI("S"), MEDIANO("M"), GRANDE("G"), MUYGRANDE("XL");
+				private talla(String abreviatura) { // constructor no public porque no se puede invocar al
+					//constructor desde fuera, debe ser private en las enums
+					this.abreviatura=abreviatura;
+				}
+				private String dame_abreviatura() { //getter 
+					return abreviatura;
+				}
+				private String abreviatura; 		 //variable de la enumeracion
+			}
+
+______________________________________________INTERFACES_________________________________________________________________
+
+	Son como las clases abstractas que solo contienen metodos abbstractos. Estos metodos no están definidos. Para usarlos 
+	se escribe: class DemoClass implements FirstInterface, SecondInterface { //implpementamos dos interfaces donde cada una 
+	tiene sus metodos, luego debemos obligatoriamente definir todos los metodos que hemos implementado.
+
+	Definir una interfaz: public interface FirstInterface {
+ 						 public void myMethod(); // interface method, no hace falta el public
+					   }
+
+	Se usa como una forma de herencia múltiple y para darle seguridad al programa porque solo se muestran algunas caracteristicas
+	de los objetos.
+	
+	CARACTERÍSTICAS:cannot be used to create objects, Interface methods do not have a body(it´s done in the implement class,you must 	override all of its methods, Interface methods are by default abstract and public, Interface attributes are by default public, 	static and final, An interface cannot contain a constructor (as it cannot be used to create objects)
+
+	public static final float tiempo_jornada = 8; => float tiempo_jornada = 8; ambas expresiones son iguales.
+	
+
+	Hay metodos de la API de java que para usatlos debemos incluir alguna interfaz definida. Como en el caso de Arrays.sort y
+	comparable. Cuando sobreescribimos el único método de la interfaz, debemos definir esta como indica la api para que el 
+	metodo comoparable funcione.
+	______________________________________________________________
+	No se pueden hacer instancias de interfaces pero:
+
+		Comparable miejemplo = new empleado("antonio", 65000, 1978, 05, 04);
+		if(miejempli instanceof empleado){.................}  //palabra clave que devuelve true si miejemplo es instancia 				de	empleado.
+
+
+
+	·JERARQUÍA DE INTERFACES: las interfaces heredan de otras mediante los metodos y variables con el comando etxends, la sintaxis es igual que  al heredar en clases, ahora cuando implementemos la interfaz hija deberemos usar además losm tipos de la madre.
+
+
+
+		
+		Class Timer: constructor: Timer(int delay, ActionListener listener)  //ActionListener es una interfaz, por tanto estamos pasando un parametro de tipo interfaz al constructor
+		
+		
+		
+		
+		
+		
+_____________________________________________CLASES INTERNAS______________________________________________________________
+		Se usan para simplificar el código, son clases que solo se ejecutan cuando se instancia un objeto en la clase madre
+		por  ejemplo. Es una clase dentro de un metodo. Su ámbito queda restringido al método donde son declaradas.
+
+	Utilidad: cuando solo se va a utilizar(instanciar) la clase interna una vez. El objetivo es simplificar el código.
+
+	Ventajas: están muy encapsuladas, ni siquiera la clase a la que pertenecen pueden acceder a ella. Solo puede acceder a ella el método donde se declara esta clase interna. El código resulta más simple.
+
+		
+		Class clase_externa{
+			Public void método(){
+				class clase_interna_local{
+					código de la clase interna;
+				}
+			código del método;
+			}
+		Código de la clase externa;
+		}
+		
+	
+	Pasar de una clase interna a una clase interna local: en vez de tener la clase directamente dentro de otra clase, la 
+	metemos dentro del método de la clase externa(clase interna local), ahora esta clase está totalmente encapsulada.
+		
+
+
+	Podemos simplificar más el código poniendo nuestras variables como parametros que se pasan al método, de esta forma podemos
+	presscindir del constructor de la clase extera y usar directamente el metodo. Para esto hay que seguir la regla de que los 	parametros del metodo deben de ser final.
+
+______________________________________________TIPOS GENÉRICOS_________________________________________________________________
+
+	Hay clases y funciones genericas, se usan los corchetes angulares(<>) entre ellos se pone una variable, entonces ahora
+	se puede recibir cualquier tipo de variable(int, float, string...) donde la variable que está dentro de los corchetes es ese
+	tipo de variable <T> T es un tipo de valor.
+
+
+
+
+
+

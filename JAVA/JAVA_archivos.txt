@@ -1,0 +1,29 @@
+public class programa_de_prueba {
+
+si estamos usando un paquete como java.util, una clase de este paquete es scanner, si estamos usando el paquete java.lang(que es el normal)
+y queremos usar laclase scanner nos dará error. Para solucionar esto debemos indicar al programa que vamos a usar una clase que no pertenece
+al paquete java.lang. Al principio del programa pondremos: 
+import java.util.*; //ahora podremos usar la clase scanner, el asterisco indica que estamos importando todas las clases de java.util
+Para importar solo una clase del paquete escribimos:import java.util.Scanner
+
+
+PROGRAMA TRIANGULO DE PASCAL:
+		
+		pisos depende de la longitud del vecor fila inicial _/
+		crear vector inicial _/
+		centrar columnas(darle a f1 la longitud adecuada)
+
+		disminuir espaciado al aumentar los digitos(se requiere más espacio en las primeras filas impresas)
+			se puede hacer disminuyendo el espacio inicial conforme avanzamos de fila o creando más espacios entre
+			los números de las primeras filas. En este último caso queda más bonito porque se puede hacer que las diagonales 
+			queden rectas. En el caso de cambiar el espacio inicial las filas quedan centradas pero cada vez son de mayor tamaño.
+
+
+		DECLARAMOS LOS DATOS DEL VECTOR COMO INT, para poder dar numeros mayores que 255, eliminamos tambien todos los casting
+		
+		
+		
+		
+		
+		
+		
